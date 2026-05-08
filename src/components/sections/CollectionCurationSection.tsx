@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import type { CollectionModel, CollectionOption } from "@/types/site";
+import { CurationCarousel3D } from "@/components/ui/CurationCarousel3D";
 
 /** editorial = texto claro (arte escura); editorialLight = tipografia escura sobre faixa clara. */
 type CollectionTone = "dark" | "editorial" | "editorialLight";
@@ -116,38 +116,12 @@ export function CollectionCurationSection({
         ? "text-stone-200/95"
         : "text-neutral-300";
 
-  const cardShell =
-    tone === "editorialLight"
-      ? "border border-neutral-200/90 bg-white/92 shadow-[0_12px_40px_rgba(0,0,0,0.06)] backdrop-blur-sm"
-      : tone === "editorial"
-        ? "border border-white/12 bg-neutral-950/50 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md"
-        : "border border-neutral-800 bg-gradient-to-b from-neutral-900 to-neutral-950";
-
-  const thumbWrap =
-    tone === "editorialLight"
-      ? "border border-neutral-200 bg-neutral-100"
-      : tone === "editorial"
-        ? "border border-white/10 bg-black/30"
-        : "border border-neutral-800 bg-neutral-950";
-
   const titleClass =
     tone === "editorialLight"
       ? "text-neutral-900"
       : tone === "editorial"
         ? "text-stone-50"
         : "text-neutral-100";
-  const subClass =
-    tone === "editorialLight"
-      ? "text-neutral-700"
-      : tone === "editorial"
-        ? "text-stone-200/90"
-        : "text-neutral-300";
-  const metaClass =
-    tone === "editorialLight"
-      ? "text-neutral-600"
-      : tone === "editorial"
-        ? "text-stone-400/95"
-        : "text-neutral-400";
   const emptyClass =
     tone === "editorialLight"
       ? "text-neutral-600"
@@ -167,8 +141,11 @@ export function CollectionCurationSection({
     tone === "editorialLight"
       ? "scroll-mt-[88px] pb-20 pt-[clamp(3.5rem,min(16vh),10rem)] md:pb-28 md:pt-[clamp(4rem,min(18vh),12rem)]"
       : tone === "editorial"
-        ? "scroll-mt-[88px] pb-20 pt-[clamp(5rem,min(20vh),11rem)] md:pb-28 md:pt-[clamp(6rem,min(24vh),14rem)]"
+        ? "scroll-mt-[88px] pb-14 pt-[clamp(1.5rem,min(8vh),4rem)] md:pb-20 md:pt-[clamp(2rem,min(10vh),5rem)]"
         : "scroll-mt-[88px] pt-4 pb-20 md:pt-8 md:pb-28";
+
+  const carouselTone: "editorial" | "editorialLight" =
+    tone === "editorialLight" ? "editorialLight" : "editorial";
 
   return (
     <section id="curadoria" className={`relative z-10 ${surface} ${sectionSpacing}`}>
@@ -184,54 +161,63 @@ export function CollectionCurationSection({
           aria-hidden
         />
       )}
-      <div className="relative mx-auto w-full max-w-6xl px-6">
-        <p className={`text-[10px] uppercase tracking-[0.18em] ${introEyebrow}`}>{eyebrow}</p>
-        <h2
-          className={`mt-3 font-serif text-3xl font-medium tracking-tight md:text-4xl ${titleClass} ${titleDrop}`}
-        >
-          {title}
-        </h2>
-        <p className={`mt-4 max-w-3xl text-sm leading-relaxed md:text-base ${introBody} ${introDrop}`}>
-          {intro}
-        </p>
-
-        <EditorialFilterStrip
-          options={aestheticFilters}
-          selected={selectedAesthetic}
-          onSelect={setSelectedAesthetic}
-          label={filterLabel}
-          tone={tone}
-        />
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {filteredModels.map((model) => (
-            <article key={model.id} className={`rounded-2xl p-5 md:p-6 ${cardShell}`}>
-              <div className={`overflow-hidden rounded-xl ${thumbWrap}`}>
-                <Image
-                  src={model.visual.src}
-                  alt={model.visual.alt}
-                  className="h-48 w-full object-cover transition duration-500 hover:scale-[1.03]"
-                />
-              </div>
-              <h3 className={`mt-4 font-serif text-lg font-medium ${titleClass}`}>{model.lineName}</h3>
-              <p className={`mt-2 text-xs tracking-wide ${subClass}`}>{model.styleSignature}</p>
-              <p className={`mt-3 text-[13px] leading-snug ${metaClass}`}>{model.materialHighlight}</p>
-            </article>
-          ))}
-        </div>
-        {filteredModels.length === 0 && (
-          <p className={`mt-6 text-sm ${emptyClass}`}>
-            Nenhuma peça nesta linguagem no momento da vitrine atual. Experimente{" "}
-            <span
-              className={
-                tone === "editorialLight" ? "font-medium text-neutral-900" : "text-stone-200"
-              }
+      <div className="relative mx-auto w-full max-w-7xl px-6">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
+          <div className="relative z-10 min-w-0 lg:col-span-5 xl:col-span-6">
+            <p className={`text-[10px] uppercase tracking-[0.18em] ${introEyebrow}`}>{eyebrow}</p>
+            <h2
+              className={`mt-3 font-serif text-3xl font-medium tracking-tight md:text-4xl ${titleClass} ${titleDrop}`}
             >
-              Ver tudo
-            </span>{" "}
-            ou fale com a consultoria para reposição sob medida.
-          </p>
-        )}
+              {title}
+            </h2>
+            <p className={`mt-4 max-w-xl text-sm leading-relaxed md:text-base ${introBody} ${introDrop}`}>
+              {intro}
+            </p>
+
+            <EditorialFilterStrip
+              options={aestheticFilters}
+              selected={selectedAesthetic}
+              onSelect={setSelectedAesthetic}
+              label={filterLabel}
+              tone={tone}
+            />
+
+            {filteredModels.length > 0 && (
+              <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-6">
+                {filteredModels.slice(0, 6).map((m) => (
+                  <li
+                    key={m.id}
+                    className={`text-[11px] tracking-[0.14em] ${
+                      tone === "editorialLight" ? "text-neutral-600" : "text-stone-400/90"
+                    }`}
+                  >
+                    {m.lineName}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className="relative min-w-0 overflow-hidden lg:col-span-7 xl:col-span-6 lg:pl-1">
+            {filteredModels.length > 0 ? (
+              <div className="mx-auto w-full max-w-[min(100%,26rem)] sm:max-w-[min(100%,28rem)] lg:ml-auto lg:mr-0 lg:max-w-[min(100%,32rem)] xl:max-w-[min(100%,34rem)] 2xl:max-w-[min(100%,36rem)]">
+                <CurationCarousel3D models={filteredModels} tone={carouselTone} />
+              </div>
+            ) : (
+              <p className={`mt-6 text-sm ${emptyClass}`}>
+                Nenhuma peça nesta linguagem no momento da vitrine atual. Experimente{" "}
+                <span
+                  className={
+                    tone === "editorialLight" ? "font-medium text-neutral-900" : "text-stone-200"
+                  }
+                >
+                  Ver tudo
+                </span>{" "}
+                ou fale com a consultoria para reposição sob medida.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

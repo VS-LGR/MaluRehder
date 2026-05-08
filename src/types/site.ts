@@ -6,7 +6,7 @@ export type CtaLink = {
 };
 
 export type SiteImage = {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
 };
 

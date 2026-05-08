@@ -8,10 +8,6 @@ import type {
   ServiceItem,
   TrustItem,
 } from "@/types/site";
-import Estojo from "@/assets/Estojo.png";
-import EstojoWide from "@/assets/Estojo_Wide.png";
-import HeroBodyCombined from "@/assets/Hero+Body.jpg";
-import Oculos from "@/assets/Oculos.png";
 
 /** Link principal WhatsApp para consultoria (reutilizado no hero, header, faixa e CTA final). */
 export const consultationWhatsAppCta = {
@@ -37,7 +33,7 @@ export const heroContent: HeroContent = {
   primaryCta: { ...consultationWhatsAppCta },
   secondaryCta: { ...curadoriaAnchorCta },
   visual: {
-    src: HeroBodyCombined,
+    src: "/Hero+Body.webp",
     alt: "Malu Rehder — curadoria editorial em óculos de alto padrão",
   },
 };
@@ -130,7 +126,7 @@ export const eyewearCollection: CollectionModel[] = [
     materialHighlight:
       "Volumes contidos, acabamento acetinado e leveza visual para uma presença silenciosa.",
     visual: {
-      src: Estojo,
+      src: "/Oculus1.webp",
       alt: "Seleção de armações Linea Essenza em estojo premium",
     },
   },
@@ -142,7 +138,7 @@ export const eyewearCollection: CollectionModel[] = [
     materialHighlight:
       "Metal leve, traços assertivos e geometria limpa para uma imagem mais marcante.",
     visual: {
-      src: Oculos,
+      src: "/Oculus2.webp",
       alt: "Armação Linea Forte em composição editorial",
     },
   },
@@ -154,8 +150,44 @@ export const eyewearCollection: CollectionModel[] = [
     materialHighlight:
       "Detalhes dourados, proporções atemporais e elegância italiana contemporânea.",
     visual: {
-      src: EstojoWide,
+      src: "/Oculus3.webp",
       alt: "Coleção Linea Classica — curadoria de luxo em vitrine",
+    },
+  },
+  {
+    id: "mr-04",
+    lineName: "Linea Sottile",
+    aestheticIds: ["minimal", "metal-leve"],
+    styleSignature: "Leveza arquitetada",
+    materialHighlight:
+      "Perfil delgado, desenho preciso e sensação de leveza para uso prolongado com sofisticação discreta.",
+    visual: {
+      src: "/Oculus4.webp",
+      alt: "Armação Linea Sottile em composição de curadoria",
+    },
+  },
+  {
+    id: "mr-05",
+    lineName: "Linea Atelier",
+    aestheticIds: ["statement", "acetato"],
+    styleSignature: "Expressão autoral",
+    materialHighlight:
+      "Volume equilibrado e presença de design para quem busca assinatura visual sem perder refinamento.",
+    visual: {
+      src: "/Oculus5.webp",
+      alt: "Armação Linea Atelier em mesa editorial",
+    },
+  },
+  {
+    id: "mr-06",
+    lineName: "Linea Aurea",
+    aestheticIds: ["italiano-classico", "dourado", "metal-leve"],
+    styleSignature: "Clássico de brilho sutil",
+    materialHighlight:
+      "Acabamentos metálicos e proporções clássicas reinterpretadas em linguagem contemporânea.",
+    visual: {
+      src: "/Oculus6.webp",
+      alt: "Armação Linea Aurea com acabamento metálico premium",
     },
   },
 ];

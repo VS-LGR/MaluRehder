@@ -39,13 +39,13 @@ export function HeroSection({ content, omitBackground = false }: HeroSectionProp
       <div
         className={`relative mx-auto flex w-full max-w-6xl flex-col px-6 ${
           omitBackground
-            ? "min-h-[min(76vh,48rem)] justify-center py-16 md:min-h-[min(70vh,44rem)] md:py-20"
+            ? "min-h-[min(76vh,48rem)] justify-start py-16 md:min-h-[min(70vh,44rem)] md:py-20"
             : "min-h-[72vh] items-center py-16 md:min-h-[78vh] md:py-20"
         }`}
       >
         <div
           className={`max-w-sm rounded-2xl border border-white/[0.08] bg-[rgba(8,8,8,0.28)] px-6 py-7 shadow-[0_6px_28px_rgba(0,0,0,0.18)] ring-0 backdrop-blur-[6px] md:max-w-md md:px-8 md:py-8 ${
-            omitBackground ? "mr-auto" : ""
+            omitBackground ? "mr-auto mt-[clamp(2.5rem,9vw,7rem)]" : ""
           }`}
         >
           <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-amber-50/80">

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f4ef;
+  --background: #f2ede2;
   --foreground: #171717;
 }
 
@@ -42,4 +42,175 @@ body {
   letter-spacing: -0.03em;
   line-height: 1.08;
   font-size: clamp(1.75rem, 4vw + 0.75rem, 2.375rem);
+}
+
+/* Carrossel 3D — tamanho medio: presenca visual sem invadir a coluna de texto */
+.curation-3d-scene {
+  --curation-tz: clamp(148px, 17.5vw, 235px);
+  --curation-face-w: clamp(92px, 11vw, 158px);
+  --curation-face-h: clamp(128px, 15.4vw, 222px);
+
+  perspective: min(1280px, 92vw);
+  perspective-origin: 62% 46%;
+}
+
+@media (min-width: 1024px) {
+  .curation-3d-scene {
+    --curation-tz: clamp(162px, 14.5vw, 255px);
+    --curation-face-w: clamp(100px, 9.5vw, 164px);
+    --curation-face-h: clamp(140px, 13.3vw, 230px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .curation-3d-scene {
+    --curation-tz: clamp(182px, 13.5vw, 285px);
+    --curation-face-w: clamp(108px, 8.5vw, 176px);
+    --curation-face-h: clamp(152px, 11.9vw, 246px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .curation-3d-scene {
+    --curation-tz: clamp(198px, 12.5vw, 310px);
+    --curation-face-w: clamp(116px, 7.8vw, 188px);
+    --curation-face-h: clamp(162px, 10.9vw, 264px);
+  }
+}
+
+.curation-3d-ring {
+  transform-style: preserve-3d;
+  animation: curation-3d-spin 28s linear infinite;
+  will-change: transform;
+}
+
+.curation-3d-face {
+  backface-visibility: hidden;
+}
+
+/* Brilho liquid glass — anima só o reflexo, não a foto */
+.curation-liquid-glass__shimmer {
+  animation: curation-glass-shimmer 28s ease-in-out infinite;
+}
+
+.curation-3d-face:nth-child(1) .curation-liquid-glass__shimmer {
+  animation-delay: 0s;
+}
+.curation-3d-face:nth-child(2) .curation-liquid-glass__shimmer {
+  animation-delay: -2.8s;
+}
+.curation-3d-face:nth-child(3) .curation-liquid-glass__shimmer {
+  animation-delay: -5.6s;
+}
+.curation-3d-face:nth-child(4) .curation-liquid-glass__shimmer {
+  animation-delay: -8.4s;
+}
+.curation-3d-face:nth-child(5) .curation-liquid-glass__shimmer {
+  animation-delay: -11.2s;
+}
+.curation-3d-face:nth-child(6) .curation-liquid-glass__shimmer {
+  animation-delay: -14s;
+}
+.curation-3d-face:nth-child(7) .curation-liquid-glass__shimmer {
+  animation-delay: -16.8s;
+}
+.curation-3d-face:nth-child(8) .curation-liquid-glass__shimmer {
+  animation-delay: -19.6s;
+}
+.curation-3d-face:nth-child(9) .curation-liquid-glass__shimmer {
+  animation-delay: -22.4s;
+}
+.curation-3d-face:nth-child(10) .curation-liquid-glass__shimmer {
+  animation-delay: -25.2s;
+}
+
+@keyframes curation-3d-spin {
+  from {
+    transform: rotateY(-360deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes curation-glass-shimmer {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+
+/* Moldura liquid glass (reflexos + vidro; imagem permanece nítida por baixo) */
+.curation-liquid-glass {
+  position: relative;
+  isolation: isolate;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.12) 38%,
+    rgba(80, 60, 45, 0.22) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 16px 36px -12px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(255, 215, 160, 0.06);
+}
+
+.curation-liquid-glass--editorial {
+  backdrop-filter: blur(16px) saturate(165%);
+  -webkit-backdrop-filter: blur(16px) saturate(165%);
+}
+
+.curation-liquid-glass--light {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.22) 45%,
+    rgba(220, 200, 170, 0.38) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+    0 24px 50px -18px rgba(60, 45, 30, 0.28),
+    0 0 40px rgba(255, 250, 240, 0.12);
+  backdrop-filter: blur(20px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+}
+
+.curation-liquid-glass--editorial .curation-liquid-glass__inner,
+.curation-liquid-glass--light .curation-liquid-glass__inner {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0.5625rem;
+}
+
+.curation-liquid-glass--editorial .curation-liquid-glass__inner {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    inset 0 0 60px rgba(0, 0, 0, 0.12);
+}
+
+.curation-liquid-glass--light .curation-liquid-glass__inner {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curation-3d-ring {
+    animation: none !important;
+  }
+
+  .curation-liquid-glass__shimmer {
+    animation: none !important;
+  }
+}
+
+.curation-3d-scene:hover .curation-3d-ring,
+.curation-3d-scene:focus-within .curation-3d-ring {
+  animation-play-state: paused;
 }

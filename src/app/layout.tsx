@@ -13,7 +13,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen bg-[#f7f4ef] text-neutral-900 antialiased">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/Hero+Body@0,5x.webp"
+          type="image/webp"
+          media="(max-width: 639px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/Hero+Body@0,75x.webp"
+          type="image/webp"
+          media="(min-width: 640px) and (max-width: 1023px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/Hero+Body.webp"
+          type="image/webp"
+          media="(min-width: 1024px)"
+          fetchPriority="high"
+        />
+      </head>
+      <body className="min-h-screen bg-[#f2ede2] text-neutral-900 antialiased">
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
