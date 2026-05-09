@@ -55,7 +55,7 @@ export function HeroSection({ content, variant = "fullBleed" }: HeroSectionProps
           belowArt
             ? "items-start py-10 sm:py-12 md:py-14 lg:py-16"
             : editorialOverlay
-              ? "min-w-0 justify-start py-10 max-lg:min-h-[min(52vh,22rem)] md:py-14 lg:min-h-[min(60vh,36rem)] lg:py-20 xl:min-h-[min(64vh,40rem)]"
+              ? "min-w-0 justify-start pb-8 pt-6 sm:pb-10 sm:pt-8 md:pb-12 md:pt-10 lg:pb-16 lg:pt-14"
               : "min-h-[72vh] items-center justify-center py-16 md:min-h-[78vh] md:py-20"
         }`}
       >
@@ -63,8 +63,10 @@ export function HeroSection({ content, variant = "fullBleed" }: HeroSectionProps
           className={
             belowArt
               ? "w-full max-w-lg rounded-2xl border border-neutral-200/90 bg-white/95 px-5 py-6 shadow-[0_10px_40px_rgba(40,30,20,0.07)] ring-1 ring-black/[0.04] sm:max-w-xl sm:px-6 sm:py-7 md:max-w-2xl md:px-8 md:py-9"
-              : `max-w-sm rounded-2xl border border-white/[0.08] bg-[rgba(8,8,8,0.28)] px-5 py-6 shadow-[0_6px_28px_rgba(0,0,0,0.18)] ring-0 backdrop-blur-[6px] sm:px-6 sm:py-7 md:max-w-md md:px-8 md:py-8 ${
-                  editorialOverlay ? "mr-auto mt-[clamp(1.5rem,7vw,6rem)]" : ""
+              : `max-w-[min(92vw,22rem)] rounded-2xl border border-white/[0.08] bg-[rgba(8,8,8,0.28)] px-5 py-6 shadow-[0_6px_28px_rgba(0,0,0,0.18)] ring-0 backdrop-blur-[6px] sm:max-w-sm sm:px-6 sm:py-7 md:max-w-md md:px-8 md:py-8 lg:max-w-lg ${
+                  editorialOverlay
+                    ? "mr-auto mt-[clamp(0.75rem,5vw,4rem)] lg:mt-[clamp(1.5rem,6vw,5.5rem)]"
+                    : ""
                 }`
           }
         >

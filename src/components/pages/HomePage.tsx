@@ -43,22 +43,25 @@ export default function HomePage() {
         }}
         imageAlt={heroContent.visual.alt}
       >
-        <div className="min-w-0 shrink-0">
-          <HeroSection content={heroContent} variant="editorialOverlay" />
+        <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col gap-y-6 sm:gap-y-8">
+          <div className="min-w-0 shrink-0">
+            <HeroSection content={heroContent} variant="editorialOverlay" />
+          </div>
+          <ScrollReveal delayMs={35}>
+            <div className="w-full shrink-0">
+              <CollectionCurationSection
+                eyebrow={collectionSectionCopy.eyebrow}
+                title={collectionSectionCopy.title}
+                intro={collectionSectionCopy.intro}
+                filterLabel={collectionSectionCopy.filterLabel}
+                aestheticFilters={aestheticFilters}
+                models={eyewearCollection}
+                tone="editorialLight"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </EditorialHeroBodyFlow>
-
-      <ScrollReveal delayMs={35}>
-        <CollectionCurationSection
-          eyebrow={collectionSectionCopy.eyebrow}
-          title={collectionSectionCopy.title}
-          intro={collectionSectionCopy.intro}
-          filterLabel={collectionSectionCopy.filterLabel}
-          aestheticFilters={aestheticFilters}
-          models={eyewearCollection}
-          tone="editorialLight"
-        />
-      </ScrollReveal>
 
       <ScrollReveal delayMs={50}>
         <ConsultationStripSection
