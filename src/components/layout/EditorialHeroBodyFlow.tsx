@@ -1,29 +1,24 @@
 import type { ReactNode } from "react";
 
 type EditorialHeroSources = {
-  /** Desktop padrão (fallback). */
   base: string;
-  /** Tablet e telas médias. */
   medium?: string;
-  /** Mobile. */
   small?: string;
 };
 
 type EditorialHeroBodyFlowProps = {
   image: EditorialHeroSources;
   imageAlt: string;
+  /** Conteúdo sobre a arte (ex.: hero). */
   children: ReactNode;
-  /** Faixa sobre a arte (ex.: marquee), ancorada no eixo vertical do bloco (arte) */
+  /** Faixa sobre a arte (ex.: marquee). */
   band?: ReactNode;
 };
 
-/**
- * Fundo editorial contínuo (hero + início do corpo).
- * A arte usa largura total e altura intrínseca — sem crop, sem letterboxing.
- */
+/** Arte full-bleed + hero sobre a imagem + faixa opcional. */
 export function EditorialHeroBodyFlow({ image, imageAlt, children, band }: EditorialHeroBodyFlowProps) {
   return (
-    <div className="relative isolate w-full overflow-x-clip overflow-y-visible border-b border-black/10">
+    <header className="relative isolate w-full overflow-x-clip overflow-y-visible border-b border-black/10">
       <picture>
         {image.small ? <source media="(max-width: 639px)" srcSet={image.small} /> : null}
         {image.medium ? <source media="(max-width: 1023px)" srcSet={image.medium} /> : null}
@@ -51,6 +46,6 @@ export function EditorialHeroBodyFlow({ image, imageAlt, children, band }: Edito
           {band}
         </div>
       ) : null}
-    </div>
+    </header>
   );
 }

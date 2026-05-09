@@ -3,8 +3,9 @@
 import { useMemo, useState } from "react";
 import type { CollectionModel, CollectionOption } from "@/types/site";
 import { CurationCarousel3D } from "@/components/ui/CurationCarousel3D";
+import { filterModelsByAesthetic } from "@/lib/collection/filter-models";
 
-/** editorial = texto claro (arte escura); editorialLight = tipografia escura sobre faixa clara. */
+/** editorial = texto claro sobre fundo escuro; editorialLight = tipografia escura em faixa clara. */
 type CollectionTone = "dark" | "editorial" | "editorialLight";
 
 type CollectionCurationSectionProps = {
@@ -47,13 +48,9 @@ function EditorialFilterStrip({
   tone: CollectionTone;
 }) {
   const labelClass =
-    tone === "editorialLight"
-      ? "text-neutral-600"
-      : tone === "editorial"
-        ? "text-stone-400/85"
-        : "text-neutral-500";
+    tone === "editorialLight" ? "text-neutral-600" : tone === "editorial" ? "text-stone-400/85" : "text-neutral-500";
   const borderTone =
-    tone === "editorialLight" ? "border-neutral-300/50" : "border-white/12";
+    tone === "editorialLight" ? "border-neutral-300/50" : tone === "editorial" ? "border-white/12" : "border-neutral-600";
 
   return (
     <div className={`mt-7 flex flex-col gap-3 border-b ${borderTone} pb-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2`}>
@@ -88,11 +85,7 @@ export function CollectionCurationSection({
   const [selectedAesthetic, setSelectedAesthetic] = useState("all");
 
   const filteredModels = useMemo(
-    () =>
-      models.filter(
-        (model) =>
-          selectedAesthetic === "all" || model.aestheticIds.includes(selectedAesthetic),
-      ),
+    () => filterModelsByAesthetic(models, selectedAesthetic),
     [models, selectedAesthetic],
   );
 
@@ -104,42 +97,21 @@ export function CollectionCurationSection({
         : "bg-neutral-950 text-neutral-100";
 
   const introEyebrow =
-    tone === "editorialLight"
-      ? "text-amber-900/75"
-      : tone === "editorial"
-        ? "text-amber-100/80"
-        : "text-neutral-400";
+    tone === "editorialLight" ? "text-amber-900/75" : tone === "editorial" ? "text-amber-100/80" : "text-neutral-400";
   const introBody =
-    tone === "editorialLight"
-      ? "text-neutral-700"
-      : tone === "editorial"
-        ? "text-stone-200/95"
-        : "text-neutral-300";
+    tone === "editorialLight" ? "text-neutral-700" : tone === "editorial" ? "text-stone-200/95" : "text-neutral-300";
 
   const titleClass =
-    tone === "editorialLight"
-      ? "text-neutral-900"
-      : tone === "editorial"
-        ? "text-stone-50"
-        : "text-neutral-100";
+    tone === "editorialLight" ? "text-neutral-900" : tone === "editorial" ? "text-stone-50" : "text-neutral-100";
   const emptyClass =
-    tone === "editorialLight"
-      ? "text-neutral-600"
-      : tone === "editorial"
-        ? "text-stone-300/90"
-        : "text-neutral-400";
+    tone === "editorialLight" ? "text-neutral-600" : tone === "editorial" ? "text-stone-300/90" : "text-neutral-400";
 
-  const titleDrop =
-    tone === "editorial"
-      ? "drop-shadow-[0_2px_24px_rgba(0,0,0,0.5)]"
-      : tone === "editorialLight"
-        ? ""
-        : "";
+  const titleDrop = tone === "editorial" ? "drop-shadow-[0_2px_24px_rgba(0,0,0,0.5)]" : "";
   const introDrop = tone === "editorial" ? "drop-shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : "";
 
   const sectionSpacing =
     tone === "editorialLight"
-      ? "scroll-mt-[88px] pb-20 pt-[clamp(3.5rem,min(16vh),10rem)] md:pb-28 md:pt-[clamp(4rem,min(18vh),12rem)]"
+      ? "scroll-mt-[88px] pb-12 pt-8 sm:pb-16 sm:pt-10 md:pb-20 md:pt-12 lg:pb-24"
       : tone === "editorial"
         ? "scroll-mt-[88px] pb-14 pt-[clamp(1.5rem,min(8vh),4rem)] md:pb-20 md:pt-[clamp(2rem,min(10vh),5rem)]"
         : "scroll-mt-[88px] pt-4 pb-20 md:pt-8 md:pb-28";
@@ -147,30 +119,26 @@ export function CollectionCurationSection({
   const carouselTone: "editorial" | "editorialLight" =
     tone === "editorialLight" ? "editorialLight" : "editorial";
 
+  const listBorder = tone === "editorialLight" ? "border-neutral-900/15" : "border-white/15";
+  const listItem = tone === "editorialLight" ? "text-neutral-600" : "text-stone-400/90";
+  const emptySpan = tone === "editorialLight" ? "font-medium text-neutral-900" : "text-stone-200";
+
   return (
     <section id="curadoria" className={`relative z-10 ${surface} ${sectionSpacing}`}>
       {tone === "editorial" && (
-        <div
-          className="pointer-events-none absolute inset-x-0 -top-12 h-28 bg-gradient-to-b from-black/15 to-transparent md:h-36"
-          aria-hidden
-        />
+        <div className="pointer-events-none absolute inset-x-0 -top-12 h-28 bg-gradient-to-b from-black/15 to-transparent md:h-36" aria-hidden />
       )}
       {tone === "editorialLight" && (
-        <div
-          className="pointer-events-none absolute inset-x-0 -top-8 h-24 bg-gradient-to-b from-white/25 to-transparent md:h-32"
-          aria-hidden
-        />
+        <div className="pointer-events-none absolute inset-x-0 -top-6 h-16 bg-gradient-to-b from-[#fbfaf7]/80 to-transparent sm:h-20" aria-hidden />
       )}
-      <div className="relative mx-auto w-full max-w-7xl px-6">
-        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
+        <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-12">
           <div className="relative z-10 min-w-0 lg:col-span-5 xl:col-span-6">
             <p className={`text-[10px] uppercase tracking-[0.18em] ${introEyebrow}`}>{eyebrow}</p>
-            <h2
-              className={`mt-3 font-serif text-3xl font-medium tracking-tight md:text-4xl ${titleClass} ${titleDrop}`}
-            >
+            <h2 className={`mt-3 font-serif text-[1.95rem] font-medium tracking-tight sm:text-3xl md:text-4xl ${titleClass} ${titleDrop}`}>
               {title}
             </h2>
-            <p className={`mt-4 max-w-xl text-sm leading-relaxed md:text-base ${introBody} ${introDrop}`}>
+            <p className={`mt-3 max-w-xl text-[13px] leading-relaxed sm:text-sm md:mt-4 md:text-base ${introBody} ${introDrop}`}>
               {intro}
             </p>
 
@@ -183,14 +151,9 @@ export function CollectionCurationSection({
             />
 
             {filteredModels.length > 0 && (
-              <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-6">
+              <ul className={`mt-6 flex flex-wrap gap-x-4 gap-y-1.5 border-t pt-4 sm:mt-8 sm:gap-x-5 sm:gap-y-2 sm:pt-6 ${listBorder}`}>
                 {filteredModels.slice(0, 6).map((m) => (
-                  <li
-                    key={m.id}
-                    className={`text-[11px] tracking-[0.14em] ${
-                      tone === "editorialLight" ? "text-neutral-600" : "text-stone-400/90"
-                    }`}
-                  >
+                  <li key={m.id} className={`text-[11px] tracking-[0.14em] ${listItem}`}>
                     {m.lineName}
                   </li>
                 ))}
@@ -206,14 +169,7 @@ export function CollectionCurationSection({
             ) : (
               <p className={`mt-6 text-sm ${emptyClass}`}>
                 Nenhuma peça nesta linguagem no momento da vitrine atual. Experimente{" "}
-                <span
-                  className={
-                    tone === "editorialLight" ? "font-medium text-neutral-900" : "text-stone-200"
-                  }
-                >
-                  Ver tudo
-                </span>{" "}
-                ou fale com a consultoria para reposição sob medida.
+                <span className={emptySpan}>Ver tudo</span> ou fale com a consultoria para reposição sob medida.
               </p>
             )}
           </div>

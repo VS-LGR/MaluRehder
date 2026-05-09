@@ -50,7 +50,7 @@ export function CurationCarousel3D({ models, tone }: CurationCarousel3DProps) {
                   alt={model.visual.alt}
                   fill
                   quality={90}
-                  priority={i === 0}
+                  preload={i === 0}
                   sizes="(max-width: 640px) 34vw, (max-width: 1024px) 28vw, (max-width: 1536px) 240px, 280px"
                   className="object-cover"
                   draggable={false}

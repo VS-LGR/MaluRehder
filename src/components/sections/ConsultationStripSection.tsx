@@ -17,7 +17,7 @@ export function ConsultationStripSection({
   editorialOverlay = false,
 }: ConsultationStripSectionProps) {
   const shell = editorialOverlay
-    ? "relative z-[5] mx-4 mb-6 overflow-hidden rounded-2xl border border-white/15 bg-black/40 py-7 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl md:mx-6 md:mb-8 md:py-8"
+    ? "relative z-[5] mx-3 mb-5 overflow-hidden rounded-2xl border border-white/15 bg-black/40 py-5 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl md:mx-6 md:mb-8 md:py-8"
     : "relative z-[5] mx-4 mb-8 mt-0 overflow-hidden rounded-2xl border border-neutral-800/15 bg-neutral-900/[0.92] py-8 shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:mx-6 md:mb-10 md:py-9";
 
   const wash = editorialOverlay
@@ -38,14 +38,14 @@ export function ConsultationStripSection({
         }
         aria-hidden
       />
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 md:flex-row md:items-end md:justify-between md:gap-10 md:px-8">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 md:flex-row md:items-end md:justify-between md:gap-10 md:px-8">
         <div className="max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.22em] text-stone-400/90">Consultoria</p>
-          <h2 className="mt-2 font-serif text-xl font-normal leading-snug tracking-tight text-[#f7f3ea] drop-shadow-sm md:text-2xl">
+          <h2 className="mt-2 font-serif text-lg font-normal leading-snug tracking-tight text-[#f7f3ea] drop-shadow-sm md:text-2xl">
             {headline}
           </h2>
           {sub ? (
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-stone-300/88">{sub}</p>
+            <p className="mt-2 max-w-md text-[13px] leading-relaxed text-stone-300/88 md:text-sm">{sub}</p>
           ) : null}
         </div>
         <div className="shrink-0 md:pb-0.5">

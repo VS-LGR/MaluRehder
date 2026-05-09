@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
 
-export const homeMetadata: Metadata = {
-  title: "Malu Rehder | Oculos premium com curadoria estetica",
+/** Single source of truth for home page discoverability copy (pt-BR). */
+const homePageSeoCopy = {
+  title: "Malu Rehder | Óculos premium com curadoria estética",
   description:
-    "Descubra oculos de alto padrao com consultoria de harmonizacao estetica. Curadoria exclusiva Malu Rehder com atendimento personalizado.",
+    "Descubra óculos de alto padrão com consultoria de harmonização estética. Curadoria exclusiva Malu Rehder com atendimento personalizado.",
+  openGraphDescription:
+    "Curadoria exclusiva de óculos com atendimento consultivo para harmonização do seu estilo.",
+} as const;
+
+export const homeMetadata: Metadata = {
+  title: homePageSeoCopy.title,
+  description: homePageSeoCopy.description,
   keywords: [
-    "otica premium",
-    "oculos de luxo",
-    "armacoes de qualidade",
+    "ótica premium",
+    "óculos de luxo",
+    "armações de qualidade",
     "consultoria de estilo",
     "Malu Rehder",
   ],
   openGraph: {
-    title: "Malu Rehder | Oculos premium com curadoria estetica",
-    description:
-      "Curadoria exclusiva de oculos com atendimento consultivo para harmonizacao do seu estilo.",
+    title: homePageSeoCopy.title,
+    description: homePageSeoCopy.openGraphDescription,
     type: "website",
     locale: "pt_BR",
   },

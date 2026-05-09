@@ -2,6 +2,11 @@
 
 import { Cormorant_Garamond, Dancing_Script } from "next/font/google";
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import {
+  computeMarqueeTranslateX,
+  formatMarqueeTransform3d,
+  readSegmentWidthPx,
+} from "@/lib/motion/brand-marquee";
 
 const scriptFont = Dancing_Script({
   subsets: ["latin"],
@@ -16,15 +21,12 @@ const serifAccent = Cormorant_Garamond({
   display: "swap",
 });
 
-/** Scroll para baixo → texto desloca para a direita (translateX positivo). */
-const SCROLL_TO_X = 0.42;
-
 /** Repetições por segmento — dois segmentos idênticos cobrem qualquer largura sem falha. */
 const SEGMENT_SPANS = 32;
 
 function LabelUnit() {
   return (
-    <span className="inline-flex shrink-0 items-baseline gap-0.5 whitespace-nowrap px-3 md:px-5">
+    <span className="inline-flex shrink-0 items-baseline gap-0.5 whitespace-nowrap px-2.5 sm:px-3 md:px-5">
       <span
         className={`${serifAccent.className} text-[0.95em] font-light italic tracking-[0.12em] text-[#faf8f4]/95`}
       >
@@ -51,12 +53,7 @@ export function BrandScrollMarquee() {
   const segmentWRef = useRef(0);
 
   const measure = useCallback(() => {
-    const el = segmentRef.current;
-    if (!el) return;
-    const w = el.offsetWidth;
-    if (w > 0) {
-      segmentWRef.current = w;
-    }
+    segmentWRef.current = readSegmentWidthPx(segmentRef.current);
   }, []);
 
   useLayoutEffect(() => {
@@ -79,17 +76,11 @@ export function BrandScrollMarquee() {
 
     const update = () => {
       frame = 0;
-      const raw = window.scrollY * SCROLL_TO_X;
       const w = segmentWRef.current;
       const track = trackRef.current;
       if (!track) return;
-      if (w <= 0) {
-        track.style.transform = "translate3d(0px, 0, 0)";
-        return;
-      }
-      // Mantem o deslocamento no intervalo [-w, 0), evitando faixa vazia.
-      const tx = (((raw % w) + w) % w) - w;
-      track.style.transform = `translate3d(${tx}px, 0, 0)`;
+      const tx = computeMarqueeTranslateX(window.scrollY, w);
+      track.style.transform = formatMarqueeTransform3d(tx);
     };
 
     const onScroll = () => {
@@ -109,24 +100,24 @@ export function BrandScrollMarquee() {
 
   return (
     <div
-      className="relative isolate w-full overflow-hidden border-y border-white/[0.28] bg-black/[0.08] py-1.5 before:pointer-events-none before:absolute before:inset-x-0 before:top-[3px] before:border-t before:border-white/[0.16] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[3px] after:border-b after:border-white/[0.16] md:py-2"
+      className="relative isolate w-full overflow-hidden border-y border-white/[0.24] bg-black/[0.12] py-1 before:pointer-events-none before:absolute before:inset-x-0 before:top-[2px] before:border-t before:border-white/[0.14] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[2px] after:border-b after:border-white/[0.14] sm:py-1.5 md:py-2"
       aria-hidden
     >
       <div className="overflow-hidden">
         <div
           ref={trackRef}
-          className="flex min-h-[2.25rem] w-max transform-gpu will-change-transform select-none md:min-h-[2.65rem]"
+          className="flex min-h-[1.85rem] w-max transform-gpu will-change-transform select-none sm:min-h-[2.1rem] md:min-h-[2.65rem]"
         >
           <div
             ref={segmentRef}
-            className="flex shrink-0 items-center text-base leading-none md:text-lg"
+            className="flex shrink-0 items-center text-[0.88rem] leading-none sm:text-base md:text-lg"
           >
             <Segment id="a" />
           </div>
-          <div className="flex shrink-0 items-center text-base leading-none md:text-lg" aria-hidden>
+          <div className="flex shrink-0 items-center text-[0.88rem] leading-none sm:text-base md:text-lg" aria-hidden>
             <Segment id="b" />
           </div>
-          <div className="flex shrink-0 items-center text-base leading-none md:text-lg" aria-hidden>
+          <div className="flex shrink-0 items-center text-[0.88rem] leading-none sm:text-base md:text-lg" aria-hidden>
             <Segment id="c" />
           </div>
         </div>
