@@ -61,7 +61,7 @@ function EditorialFilterStrip({
             key={option.id}
             type="button"
             onClick={() => onSelect(option.id)}
-            className={`rounded-full border px-2 py-1 text-[10px] font-medium tracking-wide transition md:px-2.5 md:text-[11px] ${chipToneClasses(tone, selected === option.id)}`}
+            className={`min-h-9 rounded-full border px-2.5 py-1.5 text-[10px] font-medium leading-tight tracking-wide transition md:px-3 md:text-[11px] ${chipToneClasses(tone, selected === option.id)}`}
             aria-pressed={selected === option.id}
             aria-label={`Filtrar por ${option.label}`}
           >
@@ -129,13 +129,13 @@ export function CollectionCurationSection({
         <div className="pointer-events-none absolute inset-x-0 -top-12 h-28 bg-gradient-to-b from-black/15 to-transparent md:h-36" aria-hidden />
       )}
       {tone === "editorialLight" && (
-        <div className="pointer-events-none absolute inset-x-0 -top-6 h-16 bg-gradient-to-b from-[#fbfaf7]/80 to-transparent sm:h-20" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 -top-6 h-0 bg-gradient-to-b from-[#ebe4d8]/90 to-transparent" aria-hidden />
       )}
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
+      <div className="relative mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,4vw,1.5rem)] sm:px-6">
         <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-12">
           <div className="relative z-10 min-w-0 lg:col-span-5 xl:col-span-6">
             <p className={`text-[10px] uppercase tracking-[0.18em] ${introEyebrow}`}>{eyebrow}</p>
-            <h2 className={`mt-3 font-serif text-[1.95rem] font-medium tracking-tight sm:text-3xl md:text-4xl ${titleClass} ${titleDrop}`}>
+            <h2 className={`mt-3 text-balance font-serif text-[1.95rem] font-medium tracking-tight sm:text-3xl md:text-4xl ${titleClass} ${titleDrop}`}>
               {title}
             </h2>
             <p className={`mt-3 max-w-xl text-[13px] leading-relaxed sm:text-sm md:mt-4 md:text-base ${introBody} ${introDrop}`}>

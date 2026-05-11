@@ -17,7 +17,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/Hero+Body@0,5x.webp"
+          href="/Hero@0,5x.webp"
           type="image/webp"
           media="(max-width: 639px)"
           fetchPriority="high"
@@ -25,7 +25,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/Hero+Body@0,75x.webp"
+          href="/Hero@0,75x.webp"
           type="image/webp"
           media="(min-width: 640px) and (max-width: 1023px)"
           fetchPriority="high"
@@ -33,15 +33,15 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/Hero+Body.webp"
+          href="/Hero1X.webp"
           type="image/webp"
           media="(min-width: 1024px)"
           fetchPriority="high"
         />
       </head>
-      <body className="min-h-screen bg-[#f2ede2] text-neutral-900 antialiased">
+      <body className="min-h-screen bg-[var(--background)] text-neutral-900 antialiased">
         <SiteHeader />
-        <main>{children}</main>
+        <main className="min-w-0 overflow-x-clip">{children}</main>
         <SiteFooter />
       </body>
     </html>

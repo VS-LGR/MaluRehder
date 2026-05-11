@@ -37,31 +37,26 @@ export default function HomePage() {
       <EditorialHeroBodyFlow
         band={<BrandScrollMarquee />}
         image={{
-          base: "/Hero+Body.webp",
-          medium: "/Hero+Body@0,75x.webp",
-          small: "/Hero+Body@0,5x.webp",
+          base: "/Hero1X.webp",
+          medium: "/Hero@0,75x.webp",
+          small: "/Hero@0,5x.webp",
         }}
         imageAlt={heroContent.visual.alt}
       >
-        <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col gap-y-6 sm:gap-y-8">
-          <div className="min-w-0 shrink-0">
-            <HeroSection content={heroContent} variant="editorialOverlay" />
-          </div>
-          <ScrollReveal delayMs={35}>
-            <div className="w-full shrink-0">
-              <CollectionCurationSection
-                eyebrow={collectionSectionCopy.eyebrow}
-                title={collectionSectionCopy.title}
-                intro={collectionSectionCopy.intro}
-                filterLabel={collectionSectionCopy.filterLabel}
-                aestheticFilters={aestheticFilters}
-                models={eyewearCollection}
-                tone="editorialLight"
-              />
-            </div>
-          </ScrollReveal>
-        </div>
+        <HeroSection content={heroContent} variant="editorialOverlay" />
       </EditorialHeroBodyFlow>
+
+      <ScrollReveal delayMs={35}>
+        <CollectionCurationSection
+          eyebrow={collectionSectionCopy.eyebrow}
+          title={collectionSectionCopy.title}
+          intro={collectionSectionCopy.intro}
+          filterLabel={collectionSectionCopy.filterLabel}
+          aestheticFilters={aestheticFilters}
+          models={eyewearCollection}
+          tone="editorialLight"
+        />
+      </ScrollReveal>
 
       <ScrollReveal delayMs={50}>
         <ConsultationStripSection

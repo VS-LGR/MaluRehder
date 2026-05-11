@@ -21,173 +21,170 @@ export const curadoriaAnchorCta = {
 } as const;
 
 export const instagramLink = {
-  href: "https://instagram.com/",
-  handle: "@malurehder",
+  href: "https://www.instagram.com/oticamalurehder/",
+  handle: "@oticamalurehder",
 } as const;
 
 export const heroContent: HeroContent = {
-  eyebrow: "CURADORIA ÓPTICA DE ALTO PADRÃO",
-  title: "Curadoria óptica com presença e medida certa para o seu rosto",
-  subtitle:
-    "Seleção restrita de armações sofisticadas e acompanhamento estético para equilibrar estilo, conforto e intenção de imagem — sem excesso de opções.",
+  eyebrow: "Malu Rehder",
+  title: "Curadoria sob medida para o seu rosto.",
+  subtitle: "Consultoria para escolher com precisão — menos opções, mais acerto.",
   primaryCta: { ...consultationWhatsAppCta },
   secondaryCta: { ...curadoriaAnchorCta },
   visual: {
-    src: "/Hero+Body.webp",
-    alt: "Malu Rehder — curadoria editorial em óculos de alto padrão",
+    src: "/Hero1X.webp",
+    alt: "Malu Rehder — curadoria de óculos com orientação estética",
   },
 };
 
-export const differentialsSectionTitle =
-  "Mais do que escolher óculos: construir presença";
+export const differentialsSectionTitle = "Mais do que escolher óculos: valorizar sua presença";
 
 export const differentialItems: DifferentialItem[] = [
   {
     title: "Curadoria com critério",
     description:
-      "Poucos modelos escolhidos a dedo, alinhados a design atemporal e impacto visual refinado — longe do catálogo infinito.",
+      "A seleção é feita com cuidado para evitar excesso de opções e aproximar você dos modelos que realmente combinam com seu rosto, seu estilo e sua necessidade.",
   },
   {
-    title: "Ajuste técnico e leitura de estilo",
+    title: "Orientação estética e conforto",
     description:
-      "Atendimento consultivo que considera anatomia, proporção facial e sua linguagem visual para uma escolha segura.",
+      "O atendimento considera formato do rosto, proporção, caimento, conforto e a imagem que você deseja transmitir.",
   },
   {
     title: "Acompanhamento próximo",
     description:
-      "Relacionamento contínuo após a escolha, com orientações de uso, cuidado e revisitas quando fizer sentido.",
+      "Após a escolha, você recebe orientação sobre uso, cuidado, ajustes e manutenção para que seus óculos continuem confortáveis e elegantes.",
   },
 ];
 
 export const trustItems: TrustItem[] = [
-  { label: "Atendimento consultivo", value: "1:1 especializado" },
-  { label: "Design italiano", value: "Curadoria autoral" },
+  { label: "Atendimento personalizado", value: "Cuidado individual" },
+  { label: "Curadoria de modelos", value: "Escolha com critério" },
   { label: "Pós-venda", value: "Ajustes e orientação" },
 ];
 
 export const socialProofCopy = {
-  title: "Curadoria com olhar estético e precisão óptica",
+  title: "Olhar estético, cuidado técnico e atendimento próximo",
   intro:
-    "Processo consultivo, critério técnico e acompanhamento próximo — para uma experiência de compra clara, segura e alinhada à sua imagem.",
+    "A Malu Rehder une experiência em ótica, curadoria de modelos e atendimento personalizado para tornar a escolha dos óculos mais simples, segura e refinada. Você não precisa escolher entre dezenas de opções parecidas. Você precisa encontrar os modelos certos.",
 };
 
 export const signatureServicesSectionCopy = {
-  eyebrow: "Serviços de assinatura",
-  title: "Luxo com personalização precisa",
+  eyebrow: "Serviços personalizados",
+  title: "Detalhes pensados para deixar seus óculos ainda mais seus",
 };
 
 export const signatureServices: ServiceItem[] = [
   {
     title: "Personalização de lentes",
     description:
-      "Sugestão de tonalidade e acabamento para alinhar imagem pessoal, uso real e conforto visual.",
+      "Orientação sobre tonalidade, acabamento e proteção das lentes, considerando conforto visual, rotina e estética.",
     ctaLabel: "Personalizar meu modelo",
   },
   {
-    title: "Assinatura e gravação",
+    title: "Gravação personalizada",
     description:
-      "Serviço premium para personalização discreta de peças selecionadas, com identidade única.",
+      "Serviço para personalizar peças selecionadas com um detalhe discreto e elegante.",
     ctaLabel: "Consultar gravação",
   },
   {
-    title: "Fit atelier",
+    title: "Ajuste fino da armação",
     description:
-      "Ajuste técnico fino de caimento e alinhamento da armação para estabilidade e elegância.",
-    ctaLabel: "Agendar fit atelier",
+      "Ajuste técnico de caimento, alinhamento e estabilidade para que os óculos fiquem mais confortáveis e bem posicionados no rosto.",
+    ctaLabel: "Agendar ajuste",
   },
 ];
 
-/** Filtro único: linguagem estética (+ ver tudo). */
+/** Filtros por estilo (+ ver tudo). */
 export const aestheticFilters: CollectionOption[] = [
   { id: "all", label: "Ver tudo" },
-  { id: "minimal", label: "Minimal" },
-  { id: "statement", label: "Statement" },
-  { id: "italiano-classico", label: "Italiano clássico" },
+  { id: "discreto", label: "Discreto" },
+  { id: "marcante", label: "Marcante" },
+  { id: "classico", label: "Clássico" },
   { id: "acetato", label: "Acetato" },
   { id: "metal-leve", label: "Metal leve" },
   { id: "dourado", label: "Dourado" },
 ];
 
 export const collectionSectionCopy = {
-  eyebrow: "Curadoria por linguagem estética",
-  title: "Armações com assinatura de mercado de luxo",
+  eyebrow: "CURADORIA POR ESTILO",
+  title: "Armações escolhidas para valorizar seu rosto e sua presença",
   intro:
-    "Cada linha traduz uma linguagem estética distinta. Refine a vitrine por tom — de minimalista a statement — e encontre o encaixe com a sua presença.",
-  /** Exibido em linha com os chips: “Filtrar por” + opções */
+    "Na Malu Rehder, a escolha dos óculos começa com atenção ao seu rosto, à sua rotina e ao estilo que você deseja expressar. Cada linha reúne modelos com uma proposta diferente: dos mais discretos aos mais marcantes, sempre com foco em elegância, conforto e bom acabamento.",
   filterLabel: "Filtrar por",
 };
 
 export const eyewearCollection: CollectionModel[] = [
   {
     id: "mr-01",
-    lineName: "Linea Essenza",
-    aestheticIds: ["minimal", "acetato"],
-    styleSignature: "Minimal sofisticado",
+    lineName: "Linha Essenza",
+    aestheticIds: ["discreto", "acetato"],
+    styleSignature: "Discreto e sofisticado",
     materialHighlight:
-      "Volumes contidos, acabamento acetinado e leveza visual para uma presença silenciosa.",
+      "Modelos leves, elegantes e atemporais para quem busca uma presença refinada sem exageros.",
     visual: {
       src: "/Oculus1.webp",
-      alt: "Seleção de armações Linea Essenza em estojo premium",
+      alt: "Seleção de armações Linha Essenza em estojo premium",
     },
   },
   {
     id: "mr-02",
-    lineName: "Linea Forte",
-    aestheticIds: ["statement", "metal-leve"],
+    lineName: "Linha Forte",
+    aestheticIds: ["marcante", "metal-leve"],
     styleSignature: "Presença marcante",
     materialHighlight:
-      "Metal leve, traços assertivos e geometria limpa para uma imagem mais marcante.",
+      "Armações com traços mais definidos para quem deseja transmitir segurança, personalidade e estilo.",
     visual: {
       src: "/Oculus2.webp",
-      alt: "Armação Linea Forte em composição editorial",
+      alt: "Armação Linha Forte em composição editorial",
     },
   },
   {
     id: "mr-03",
-    lineName: "Linea Classica",
-    aestheticIds: ["italiano-classico", "dourado"],
-    styleSignature: "Clássico italiano contemporâneo",
+    lineName: "Linha Clássica",
+    aestheticIds: ["classico", "dourado"],
+    styleSignature: "Elegância atemporal",
     materialHighlight:
-      "Detalhes dourados, proporções atemporais e elegância italiana contemporânea.",
+      "Modelos equilibrados, com detalhes delicados e acabamento refinado para quem valoriza um visual clássico e sofisticado.",
     visual: {
       src: "/Oculus3.webp",
-      alt: "Coleção Linea Classica — curadoria de luxo em vitrine",
+      alt: "Coleção Linha Clássica em vitrine curada",
     },
   },
   {
     id: "mr-04",
-    lineName: "Linea Sottile",
-    aestheticIds: ["minimal", "metal-leve"],
-    styleSignature: "Leveza arquitetada",
+    lineName: "Linha Sutil",
+    aestheticIds: ["discreto", "metal-leve"],
+    styleSignature: "Leveza no rosto",
     materialHighlight:
-      "Perfil delgado, desenho preciso e sensação de leveza para uso prolongado com sofisticação discreta.",
+      "Armações delicadas, confortáveis e discretas, pensadas para uso diário com elegância.",
     visual: {
       src: "/Oculus4.webp",
-      alt: "Armação Linea Sottile em composição de curadoria",
+      alt: "Armação Linha Sutil em composição de curadoria",
     },
   },
   {
     id: "mr-05",
-    lineName: "Linea Atelier",
-    aestheticIds: ["statement", "acetato"],
-    styleSignature: "Expressão autoral",
+    lineName: "Linha Autoral",
+    aestheticIds: ["marcante", "acetato"],
+    styleSignature: "Design com personalidade",
     materialHighlight:
-      "Volume equilibrado e presença de design para quem busca assinatura visual sem perder refinamento.",
+      "Modelos selecionados para quem deseja fugir do comum, mantendo sofisticação e bom gosto.",
     visual: {
       src: "/Oculus5.webp",
-      alt: "Armação Linea Atelier em mesa editorial",
+      alt: "Armação Linha Autoral em mesa editorial",
     },
   },
   {
     id: "mr-06",
-    lineName: "Linea Aurea",
-    aestheticIds: ["italiano-classico", "dourado", "metal-leve"],
-    styleSignature: "Clássico de brilho sutil",
+    lineName: "Linha Dourada",
+    aestheticIds: ["classico", "dourado", "metal-leve"],
+    styleSignature: "Detalhes que iluminam",
     materialHighlight:
-      "Acabamentos metálicos e proporções clássicas reinterpretadas em linguagem contemporânea.",
+      "Armações com acabamentos dourados e detalhes elegantes para valorizar o rosto com sutileza.",
     visual: {
       src: "/Oculus6.webp",
-      alt: "Armação Linea Aurea com acabamento metálico premium",
+      alt: "Armação Linha Dourada com acabamento metálico refinado",
     },
   },
 ];
@@ -196,24 +193,34 @@ export const faqSectionTitle = "Dúvidas antes da consultoria";
 
 export const faqItems: FaqItem[] = [
   {
-    question: "Como funciona a consultoria de harmonização estética?",
+    question: "Como funciona a consultoria?",
     answer:
-      "Mapeamos seu estilo, formato de rosto e intenção de imagem para indicar modelos que valorizem proporção e personalidade.",
+      "Entendemos seu estilo, formato de rosto, rotina e necessidades visuais para indicar modelos que valorizem sua imagem e tragam conforto.",
   },
   {
     question: "A loja trabalha com poucos modelos?",
     answer:
-      "Sim. A seleção é propositalmente enxuta para garantir qualidade, exclusividade e decisão com suporte consultivo.",
+      "Sim. A seleção é propositalmente mais enxuta para facilitar a escolha e manter um padrão maior de qualidade, acabamento e atendimento.",
   },
   {
     question: "Posso iniciar o atendimento online?",
     answer:
-      "Sim. O primeiro contato pode ser pelo WhatsApp, onde entendemos seu perfil e direcionamos os modelos mais adequados.",
+      "Sim. O primeiro contato pode ser feito pelo WhatsApp. A partir dele, entendemos melhor o que você procura e orientamos os próximos passos.",
   },
   {
     question: "Existe opção de personalização?",
     answer:
-      "Sim. Trabalhamos personalização em lentes e acabamentos selecionados, sempre com avaliação consultiva.",
+      "Sim. Algumas peças permitem personalização em lentes, acabamentos ou detalhes específicos, sempre com orientação da equipe.",
+  },
+  {
+    question: "A consultoria também ajuda na escolha das lentes?",
+    answer:
+      "Sim. A equipe orienta sobre opções de lentes, tratamentos e acabamentos de acordo com sua necessidade e com o modelo escolhido.",
+  },
+  {
+    question: "Posso buscar óculos de grau e óculos de sol?",
+    answer:
+      "Sim. A curadoria pode considerar diferentes usos, como rotina profissional, leitura, direção, eventos, proteção solar e estilo pessoal.",
   },
 ];
 
@@ -226,50 +233,53 @@ export const consultationProcessSteps: ProcessStep[] = [
   {
     title: "Primeiro contato",
     description:
-      "Conversamos sobre rotina visual, objetivos de imagem e preferências — para chegar à consulta com direção clara.",
+      "Conversamos sobre sua rotina, suas preferências, suas necessidades visuais e o tipo de imagem que você deseja passar.",
   },
   {
-    title: "Seleção assistida",
+    title: "Seleção orientada",
     description:
-      "Menos volume, mais precisão: apresentamos peças alinhadas à sua anatomia e linguagem estética, sem excesso de opções.",
+      "Em vez de apresentar muitos modelos sem direção, indicamos armações que combinam melhor com seu rosto, seu estilo e seu momento.",
   },
   {
-    title: "Medidas e escolha das lentes",
+    title: "Escolha das lentes e acabamentos",
     description:
-      "Definimos tecnologia e acabamentos das lentes com foco em conforto, proteção e coerência com o modelo escolhido.",
+      "Orientamos a escolha das lentes, tratamentos e acabamentos, sempre pensando em conforto, proteção e harmonia com a armação.",
   },
   {
-    title: "Acabamentos e próximos passos",
+    title: "Ajustes e próximos passos",
     description:
-      "Ajustamos caimento, orientamos uso e manutenção, e combinamos revisitas quando fizer sentido.",
+      "Ajustamos o caimento dos óculos, orientamos os cuidados de uso e combinamos novas visitas quando necessário.",
   },
 ];
 
 export const stylingConsultationContent = {
   title: "Uma escolha guiada por proporção, estilo e presença",
   intro:
-    "A consultoria considera linguagem visual, formato de rosto e contexto de uso — para que cada escolha seja elegante, confortável e coerente com quem você é.",
-  panelEyebrow: "Experiência sob medida",
-  panelTitle: "Uma curadoria individual, feita para o seu rosto e sua rotina",
+    "A consultoria Malu Rehder considera seu formato de rosto, sua rotina, suas preferências e a imagem que você deseja transmitir. O objetivo é tornar a escolha dos óculos mais clara, segura e elegante — com modelos que valorizem seus traços e acompanhem seu dia a dia com conforto.",
+  panelEyebrow: "Experiência personalizada",
+  panelTitle: "Uma curadoria feita para o seu rosto e sua rotina",
   panelBody:
-    "Modelos, lentes e acabamentos são direcionados a partir da sua anatomia facial, intenção de imagem e contexto de uso.",
+    "Armações, lentes e acabamentos são indicados a partir das suas necessidades, do seu estilo e da forma como você usa seus óculos no dia a dia.",
 };
 
 export const consultationStripCopy = {
-  headline: "Pronto para agendar sua consultoria?",
-  sub: "Fale conosco e receba indicações alinhadas ao seu rosto e à sua presença.",
+  headline: "Pronto para escolher seus próximos óculos com mais segurança?",
+  sub: "Fale conosco e receba indicações de modelos alinhados ao seu rosto, ao seu estilo e à sua rotina.",
   cta: { ...consultationWhatsAppCta },
 };
 
 export const finalCtaCopy = {
-  title: "Agende uma curadoria e escolha com mais clareza",
+  title: "Agende uma curadoria e escolha seus próximos óculos com mais clareza",
   subtitle:
-    "Fale com nossa equipe para receber indicações personalizadas — com segurança na decisão e intenção de imagem bem definida.",
+    "Fale com nossa equipe para receber indicações personalizadas de armações, lentes e acabamentos — com segurança, conforto e intenção de imagem bem definida.",
   primaryCta: { ...consultationWhatsAppCta },
   secondaryCta: { ...curadoriaAnchorCta },
 };
 
 export const siteFooterCopy = {
-  line1: "Malu Rehder Eyewear Curatorship",
-  line2: "Atendimento com horário marcado e orientação personalizada.",
+  line1: "Malu Rehder",
+  line2:
+    "Curadoria de óculos, atendimento personalizado e orientação estética para uma escolha mais elegante, segura e alinhada ao seu estilo.",
+  line3: "Sorocaba/SP",
+  line4: "Atendimento com horário marcado, conforme disponibilidade da loja.",
 };

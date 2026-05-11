@@ -23,8 +23,8 @@ export function DifferentialsSection({
   const gridMt = editorialOverlay ? "mt-6 md:mt-10" : "mt-12 md:mt-14";
 
   const cardShell = editorialOverlay
-    ? "rounded-2xl border border-white/30 bg-white/[0.2] px-4 py-5 shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/10 backdrop-blur-xl md:px-7 md:py-8"
-    : "rounded-2xl border border-amber-950/10 bg-white/90 px-6 py-7 shadow-[0_10px_36px_rgba(40,30,20,0.08)] md:px-7 md:py-8";
+    ? "rounded-3xl border border-white/30 bg-white/[0.2] px-4 py-5 shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/10 backdrop-blur-xl md:px-7 md:py-8"
+    : "rounded-3xl border border-amber-950/10 bg-white/90 px-6 py-7 shadow-[0_10px_36px_rgba(40,30,20,0.08)] md:px-7 md:py-8";
 
   const cardIndex = editorialOverlay ? "text-amber-100/65" : "text-amber-900/45";
   const cardTitle = editorialOverlay ? "text-stone-50" : "text-neutral-900";
@@ -32,7 +32,7 @@ export function DifferentialsSection({
 
   return (
     <section id="diferenciais" className={sectionShell}>
-      <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+      <div className="mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,3vw,2rem)] sm:px-4 md:px-8">
         <p className={`text-[10px] uppercase tracking-[0.2em] ${eyebrow}`}>Diferenciais</p>
         <h2 className={`heading-editorial mt-2 max-w-4xl ${title}`}>{sectionTitle}</h2>
         <div className={`grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 ${gridMt}`}>

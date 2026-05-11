@@ -9,7 +9,7 @@ type SocialProofSectionProps = {
 export function SocialProofSection({ title, intro, trustItems }: SocialProofSectionProps) {
   return (
     <section className="heading-serif-section border-t border-amber-950/8 bg-[#f7f4ef] py-14 md:py-16">
-      <div className="mx-auto w-full max-w-6xl px-6">
+      <div className="mx-auto w-full min-w-0 max-w-6xl px-[clamp(0.75rem,4vw,1.5rem)] sm:px-6">
         <p className="text-[10px] uppercase tracking-[0.2em] text-amber-900/45">Confiança</p>
         <h2 className="heading-editorial mt-3 text-neutral-900">{title}</h2>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-neutral-600 md:text-[15px]">{intro}</p>

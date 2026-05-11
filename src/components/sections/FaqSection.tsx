@@ -11,7 +11,7 @@ export function FaqSection({ title, items }: FaqSectionProps) {
       id="contato"
       className="heading-serif-section scroll-mt-[88px] border-t border-amber-950/10 bg-[#f7f4ef] py-14 md:py-16"
     >
-      <div className="mx-auto w-full max-w-3xl px-6">
+      <div className="mx-auto w-full min-w-0 max-w-3xl px-[clamp(0.75rem,4vw,1.5rem)] sm:px-6">
         <p className="text-[10px] uppercase tracking-[0.2em] text-amber-900/45">Orientações</p>
         <h2 className="heading-editorial mt-3 text-neutral-900">{title}</h2>
         <div className="mt-8 divide-y divide-amber-950/12 border-y border-amber-950/12">

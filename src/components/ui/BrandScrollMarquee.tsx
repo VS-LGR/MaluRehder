@@ -100,7 +100,7 @@ export function BrandScrollMarquee() {
 
   return (
     <div
-      className="relative isolate w-full overflow-hidden border-y border-white/[0.24] bg-black/[0.12] py-1 before:pointer-events-none before:absolute before:inset-x-0 before:top-[2px] before:border-t before:border-white/[0.14] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[2px] after:border-b after:border-white/[0.14] sm:py-1.5 md:py-2"
+      className="relative isolate w-full overflow-hidden border-y border-[#f0e4d6]/[0.22] bg-[rgba(32,24,20,0.38)] py-1 before:pointer-events-none before:absolute before:inset-x-0 before:top-[2px] before:border-t before:border-[#e8d5c4]/20 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[2px] after:border-b after:border-[#e8d5c4]/20 sm:py-1.5 md:py-2"
       aria-hidden
     >
       <div className="overflow-hidden">

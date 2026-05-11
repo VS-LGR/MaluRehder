@@ -28,7 +28,7 @@ export function ButtonLink({
         "inline-flex items-center justify-center rounded-full text-sm font-medium transition",
         !isCompact && "h-11 px-6 tracking-[0.02em]",
         isCompact &&
-          "h-auto min-h-0 px-4 py-2.5 text-[11px] leading-none tracking-[0.02em] md:px-7 md:py-3.5 md:text-sm",
+          "h-auto min-h-[44px] px-4 py-2.5 text-[11px] leading-none tracking-[0.02em] md:min-h-0 md:px-7 md:py-3.5 md:text-sm",
         variant === "primary" &&
           (isOnDark
             ? "bg-neutral-50 text-neutral-950 hover:bg-white"

@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import Image from "next/image";
+import Link from "next/link";
 import type { HeroContent } from "@/types/site";
 
 type HeroSectionProps = {
@@ -20,9 +21,9 @@ export function HeroSection({ content, variant = "fullBleed" }: HeroSectionProps
     <section
       className={
         belowArt
-          ? "relative border-b border-neutral-200/65 bg-[#fbfaf7]"
+          ? "relative border-b border-neutral-900/8 bg-transparent"
           : editorialOverlay
-            ? "relative bg-transparent"
+            ? "relative w-full bg-transparent"
             : "relative min-h-[72vh] overflow-hidden border-b border-neutral-800/40 bg-neutral-950 md:min-h-[78vh]"
       }
     >
@@ -44,65 +45,78 @@ export function HeroSection({ content, variant = "fullBleed" }: HeroSectionProps
           />
         </>
       )}
-      {editorialOverlay && (
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,rgba(5,4,3,0.36)_0%,rgba(5,4,3,0.1)_30%,transparent_52%)]"
-          aria-hidden
-        />
-      )}
       <div
-        className={`relative mx-auto flex w-full max-w-6xl flex-col px-4 sm:px-6 ${
+        className={
           belowArt
-            ? "items-start py-10 sm:py-12 md:py-14 lg:py-16"
+            ? "relative z-[1] mx-auto flex w-full max-w-6xl flex-col items-start px-4 py-10 sm:px-6 sm:py-12 md:py-14 lg:py-16"
             : editorialOverlay
-              ? "min-w-0 justify-start pb-8 pt-6 sm:pb-10 sm:pt-8 md:pb-12 md:pt-10 lg:pb-16 lg:pt-14"
-              : "min-h-[72vh] items-center justify-center py-16 md:min-h-[78vh] md:py-20"
-        }`}
+              ? "relative z-[1] mx-auto flex w-full max-w-6xl min-h-0 flex-row flex-wrap items-start justify-center px-0 py-0 -mx-[81px] my-[79px] text-white"
+              : "relative z-[1] mx-auto flex w-full max-w-6xl flex-col min-h-[72vh] items-center justify-center px-4 py-16 sm:px-6 md:min-h-[78vh] md:py-20"
+        }
       >
-        <div
-          className={
-            belowArt
-              ? "w-full max-w-lg rounded-2xl border border-neutral-200/90 bg-white/95 px-5 py-6 shadow-[0_10px_40px_rgba(40,30,20,0.07)] ring-1 ring-black/[0.04] sm:max-w-xl sm:px-6 sm:py-7 md:max-w-2xl md:px-8 md:py-9"
-              : `max-w-[min(92vw,22rem)] rounded-2xl border border-white/[0.08] bg-[rgba(8,8,8,0.28)] px-5 py-6 shadow-[0_6px_28px_rgba(0,0,0,0.18)] ring-0 backdrop-blur-[6px] sm:max-w-sm sm:px-6 sm:py-7 md:max-w-md md:px-8 md:py-8 lg:max-w-lg ${
-                  editorialOverlay
-                    ? "mr-auto mt-[clamp(0.75rem,5vw,4rem)] lg:mt-[clamp(1.5rem,6vw,5.5rem)]"
-                    : ""
-                }`
-          }
-        >
-          <p
-            className={`mb-4 text-[10px] font-medium uppercase tracking-[0.2em] ${
-              belowArt ? "text-amber-900/75" : "text-amber-50/80"
-            }`}
-          >
-            {content.eyebrow}
-          </p>
-          <h1
-            className={`font-serif text-[1.85rem] font-medium leading-tight tracking-tight sm:text-3xl md:text-[2.75rem] md:leading-[1.12] ${
-              belowArt
-                ? "max-w-3xl text-neutral-900"
-                : "max-w-3xl text-[#faf8f5] drop-shadow-[0_1px_12px_rgba(0,0,0,0.35)]"
-            }`}
-          >
-            {content.title}
-          </h1>
-          <p
-            className={`mt-4 max-w-xl text-[13px] leading-relaxed sm:text-sm md:mt-5 md:text-base ${
-              belowArt ? "text-neutral-700" : "text-stone-100/95"
-            }`}
-          >
-            {content.subtitle}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3 md:gap-4">
-            <ButtonLink href={content.primaryCta.href} label={content.primaryCta.label} appearance={belowArt ? "default" : "onDark"} />
-            <ButtonLink
-              href={content.secondaryCta.href}
-              label={content.secondaryCta.label}
-              variant="secondary"
-              appearance={belowArt ? "default" : "onDark"}
-            />
+        {editorialOverlay ? (
+          <div className="mx-auto w-full max-w-[min(100%,22rem)] sm:mx-0 sm:max-w-lg md:max-w-xl">
+            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.42em] text-[#181716]/90 sm:mb-6 sm:text-[11px] sm:tracking-[0.38em]">
+              {content.eyebrow}
+            </p>
+            <h1 className="max-w-[18ch] font-serif font-medium tracking-[-0.025em] text-balance text-[clamp(1.85rem,5.2vw+0.35rem,3.25rem)] leading-[1.06] text-[#181716] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:max-w-[20ch] md:leading-[1.04]">
+              {content.title}
+            </h1>
+            <p className="mt-5 max-w-[26ch] text-[13px] leading-[1.65] text-[#181716]/88 sm:mt-6 sm:text-sm md:mt-7 md:max-w-[30ch] md:text-[0.95rem]">
+              {content.subtitle}
+            </p>
+            <div className="mt-9 flex w-full min-w-0 flex-col items-start gap-6 sm:mt-11 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4">
+              <ButtonLink href={content.primaryCta.href} label={content.primaryCta.label} appearance="onDark" />
+              <Link
+                href={content.secondaryCta.href}
+                className="text-[11px] uppercase tracking-[0.26em] text-black underline decoration-black/35 underline-offset-[6px] transition hover:text-neutral-900 hover:decoration-neutral-900/50"
+              >
+                {content.secondaryCta.label}
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div
+            className={
+              belowArt
+                ? "w-full max-w-lg rounded-3xl border border-neutral-200/90 bg-white/95 px-5 py-6 shadow-[0_10px_40px_rgba(40,30,20,0.07)] ring-1 ring-black/[0.04] sm:max-w-xl sm:px-6 sm:py-7 md:max-w-2xl md:px-8 md:py-9"
+                : "box-border w-full max-w-[min(100%,22.5rem)] rounded-3xl border border-[#f5ebe0]/[0.16] bg-[rgba(16,12,10,0.42)] px-[clamp(0.875rem,3.5vw,1.25rem)] py-5 shadow-[0_10px_40px_rgba(12,8,6,0.45)] ring-1 ring-[#c4a574]/[0.1] backdrop-blur-[12px] sm:max-w-lg sm:px-6 sm:py-7 md:max-w-xl md:px-8 md:py-8"
+            }
+          >
+            <p
+              className={`mb-3 text-[10px] font-medium uppercase tracking-[0.2em] sm:mb-4 ${
+                belowArt ? "text-amber-900/75" : "text-amber-50/85"
+              }`}
+            >
+              {content.eyebrow}
+            </p>
+            <h1
+              className={`font-serif font-medium tracking-tight text-balance ${
+                belowArt
+                  ? "max-w-3xl text-[1.65rem] leading-[1.12] text-neutral-900 sm:text-3xl sm:leading-tight md:text-[2.65rem] md:leading-[1.1]"
+                  : "max-w-[min(100%,42rem)] text-[clamp(1.45rem,3.6vw+0.4rem,2.65rem)] leading-[1.12] text-[#faf8f5] drop-shadow-[0_1px_14px_rgba(0,0,0,0.4)] sm:leading-[1.1] md:leading-[1.08]"
+              }`}
+            >
+              {content.title}
+            </h1>
+            <p
+              className={`mt-3 max-w-xl text-[13px] leading-relaxed sm:mt-4 sm:text-sm md:mt-5 md:text-base ${
+                belowArt ? "text-neutral-700" : "text-stone-100/95"
+              }`}
+            >
+              {content.subtitle}
+            </p>
+            <div className="mt-5 flex w-full min-w-0 flex-col gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:gap-3 md:mt-8 md:gap-4 [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto sm:[&>a]:justify-center">
+              <ButtonLink href={content.primaryCta.href} label={content.primaryCta.label} appearance={belowArt ? "default" : "onDark"} />
+              <ButtonLink
+                href={content.secondaryCta.href}
+                label={content.secondaryCta.label}
+                variant="secondary"
+                appearance={belowArt ? "default" : "onDark"}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
