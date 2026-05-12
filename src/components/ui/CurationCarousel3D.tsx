@@ -132,7 +132,7 @@ export function CurationCarousel3D({ models, tone }: CurationCarousel3DProps) {
       aria-label="Vitrine em rotação suave; ao passar o cursor sobre uma peça, ela centra-se na frente"
     >
       <div className="pointer-events-none absolute inset-x-[18%] top-[10%] h-[40%] rounded-[45%] bg-[radial-gradient(ellipse_at_center,rgba(255,220,160,0.18)_0%,transparent_70%)] opacity-80" />
-      <div className="curation-3d-ring relative mx-auto flex min-h-[min(34vh,320px)] w-full items-center justify-center sm:min-h-[min(38vh,380px)] lg:min-h-[min(42vh,440px)] [transform-style:preserve-3d]">
+      <div className="curation-3d-ring relative mx-auto flex min-h-[min(35vh,328px)] w-full items-center justify-center sm:min-h-[min(37vh,372px)] md:min-h-[min(39vh,396px)] lg:min-h-[min(42vh,440px)] xl:min-h-[min(43vh,452px)] [transform-style:preserve-3d]">
         {faces.map((model, i) => (
           <div
             key={`${model.id}-${i}`}
