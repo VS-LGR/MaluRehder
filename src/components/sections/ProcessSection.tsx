@@ -1,3 +1,4 @@
+import { AmbientProcessLayer } from "@/components/pages/HomeAmbientDecor";
 import type { ProcessStep } from "@/types/site";
 
 type ProcessSectionProps = {
@@ -32,7 +33,8 @@ export function ProcessSection({
 
   return (
     <section id="consultoria" className={sectionShell}>
-      <div className="mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,3vw,2rem)] sm:px-4 md:px-8">
+      {!editorialOverlay ? <AmbientProcessLayer /> : null}
+      <div className="relative z-[2] mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,3vw,2rem)] sm:px-4 md:px-8">
         <p className={`text-[11px] uppercase tracking-[0.18em] ${eyebrowClass}`}>{eyebrow}</p>
         <h2 className={`heading-editorial mt-2 max-w-4xl ${titleClass}`}>{title}</h2>
         <ol className="mt-6 grid grid-cols-1 gap-3.5 sm:mt-8 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 xl:gap-5">

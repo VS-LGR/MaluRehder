@@ -58,7 +58,7 @@ export function EditorialHeroBodyFlow({ image, imageAlt, children, band }: Edito
               aria-hidden
             />
             <div className="absolute inset-0 z-[20] flex min-h-0 min-w-0 flex-col overflow-x-clip">
-              <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-[clamp(0.75rem,4vw,1.5rem)] pb-10 pt-[calc(4.25rem+env(safe-area-inset-top,0px))] sm:px-6 sm:pb-12 sm:pt-[4.5rem] md:pb-14 md:pt-24 lg:pb-16 lg:pt-28">
+              <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col justify-center px-[clamp(0.75rem,4vw,1.5rem)] pb-10 pt-[calc(4.25rem+env(safe-area-inset-top,0px))] sm:px-6 sm:pb-12 sm:pt-[4.5rem] md:max-lg:px-10 md:pb-14 md:pt-24 lg:px-8 lg:pb-16 lg:pt-28">
                 {children}
               </div>
             </div>

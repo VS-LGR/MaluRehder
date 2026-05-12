@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CollectionModel, CollectionOption } from "@/types/site";
+import { AmbientCuradoriaLayer } from "@/components/pages/HomeAmbientDecor";
 import { CurationCarousel3D } from "@/components/ui/CurationCarousel3D";
 import { filterModelsByAesthetic } from "@/lib/collection/filter-models";
 
@@ -53,9 +54,9 @@ function EditorialFilterStrip({
     tone === "editorialLight" ? "border-neutral-300/50" : tone === "editorial" ? "border-white/12" : "border-neutral-600";
 
   return (
-    <div className={`mt-7 flex flex-col gap-3 border-b ${borderTone} pb-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2`}>
+    <div className={`mt-7 flex flex-col gap-3 border-b ${borderTone} pb-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2 md:max-lg:gap-x-6`}>
       <span className={`shrink-0 text-[10px] uppercase tracking-[0.2em] ${labelClass}`}>{label}</span>
-      <div className="flex min-w-0 flex-1 flex-wrap gap-1.5 sm:justify-start">
+      <div className="flex min-w-0 flex-1 flex-wrap gap-1.5 sm:justify-start md:max-lg:gap-x-2 md:max-lg:gap-y-2">
         {options.map((option) => (
           <button
             key={option.id}
@@ -126,12 +127,13 @@ export function CollectionCurationSection({
   return (
     <section id="curadoria" className={`relative z-10 ${surface} ${sectionSpacing}`}>
       {tone === "editorial" && (
-        <div className="pointer-events-none absolute inset-x-0 -top-12 h-28 bg-gradient-to-b from-black/15 to-transparent md:h-36" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 -top-12 z-[1] h-28 bg-gradient-to-b from-black/15 to-transparent md:h-36" aria-hidden />
       )}
       {tone === "editorialLight" && (
-        <div className="pointer-events-none absolute inset-x-0 -top-6 h-0 bg-gradient-to-b from-[#ebe4d8]/90 to-transparent" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 -top-6 z-[1] h-0 bg-gradient-to-b from-[#ebe4d8]/90 to-transparent" aria-hidden />
       )}
-      <div className="relative mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,4vw,1.5rem)] sm:px-6">
+      {tone === "editorialLight" ? <AmbientCuradoriaLayer /> : null}
+      <div className="relative z-[2] mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,4vw,1.5rem)] sm:px-6 md:max-lg:px-10 lg:px-8">
         <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-12">
           <div className="relative z-10 min-w-0 lg:col-span-5 xl:col-span-6">
             <p className={`text-[10px] uppercase tracking-[0.18em] ${introEyebrow}`}>{eyebrow}</p>
@@ -151,7 +153,7 @@ export function CollectionCurationSection({
             />
 
             {filteredModels.length > 0 && (
-              <ul className={`mt-6 flex flex-wrap gap-x-4 gap-y-1.5 border-t pt-4 sm:mt-8 sm:gap-x-5 sm:gap-y-2 sm:pt-6 ${listBorder}`}>
+              <ul className={`mt-6 flex flex-wrap gap-x-4 gap-y-1.5 border-t pt-4 sm:mt-8 sm:gap-x-5 sm:gap-y-2 sm:pt-6 md:max-lg:gap-x-6 ${listBorder}`}>
                 {filteredModels.slice(0, 6).map((m) => (
                   <li key={m.id} className={`text-[11px] tracking-[0.14em] ${listItem}`}>
                     {m.lineName}

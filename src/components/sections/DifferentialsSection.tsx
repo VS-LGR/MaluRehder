@@ -1,3 +1,4 @@
+import { AmbientDifferentialsLayer } from "@/components/pages/HomeAmbientDecor";
 import type { DifferentialItem } from "@/types/site";
 
 type DifferentialsSectionProps = {
@@ -32,7 +33,8 @@ export function DifferentialsSection({
 
   return (
     <section id="diferenciais" className={sectionShell}>
-      <div className="mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,3vw,2rem)] sm:px-4 md:px-8">
+      {!editorialOverlay ? <AmbientDifferentialsLayer /> : null}
+      <div className="relative z-[2] mx-auto w-full min-w-0 max-w-7xl px-[clamp(0.75rem,3vw,2rem)] sm:px-4 md:px-8">
         <p className={`text-[10px] uppercase tracking-[0.2em] ${eyebrow}`}>Diferenciais</p>
         <h2 className={`heading-editorial mt-2 max-w-4xl ${title}`}>{sectionTitle}</h2>
         <div className={`grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 ${gridMt}`}>

@@ -50,29 +50,31 @@ export function HeroSection({ content, variant = "fullBleed" }: HeroSectionProps
           belowArt
             ? "relative z-[1] mx-auto flex w-full max-w-6xl flex-col items-start px-4 py-10 sm:px-6 sm:py-12 md:py-14 lg:py-16"
             : editorialOverlay
-              ? "relative z-[1] mx-auto flex w-full max-w-6xl min-h-0 flex-row flex-wrap items-start justify-center px-0 py-0 -mx-[81px] my-[79px] text-white"
+              ? "relative z-[1] mx-auto flex w-full min-h-0 min-w-0 max-w-6xl flex-col items-start px-0 py-0"
               : "relative z-[1] mx-auto flex w-full max-w-6xl flex-col min-h-[72vh] items-center justify-center px-4 py-16 sm:px-6 md:min-h-[78vh] md:py-20"
         }
       >
         {editorialOverlay ? (
-          <div className="mx-auto w-full max-w-[min(100%,22rem)] sm:mx-0 sm:max-w-lg md:max-w-xl">
-            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.42em] text-[#181716]/90 sm:mb-6 sm:text-[11px] sm:tracking-[0.38em]">
-              {content.eyebrow}
-            </p>
-            <h1 className="max-w-[18ch] font-serif font-medium tracking-[-0.025em] text-balance text-[clamp(1.85rem,5.2vw+0.35rem,3.25rem)] leading-[1.06] text-[#181716] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:max-w-[20ch] md:leading-[1.04]">
-              {content.title}
-            </h1>
-            <p className="mt-5 max-w-[26ch] text-[13px] leading-[1.65] text-[#181716]/88 sm:mt-6 sm:text-sm md:mt-7 md:max-w-[30ch] md:text-[0.95rem]">
-              {content.subtitle}
-            </p>
-            <div className="mt-9 flex w-full min-w-0 flex-col items-start gap-6 sm:mt-11 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4">
-              <ButtonLink href={content.primaryCta.href} label={content.primaryCta.label} appearance="onDark" />
-              <Link
-                href={content.secondaryCta.href}
-                className="text-[11px] uppercase tracking-[0.26em] text-black underline decoration-black/35 underline-offset-[6px] transition hover:text-neutral-900 hover:decoration-neutral-900/50"
-              >
-                {content.secondaryCta.label}
-              </Link>
+          <div className="flex w-full min-w-0 justify-center md:w-1/2 md:justify-center md:pr-5 md:max-lg:pr-8 lg:pr-8">
+            <div className="w-full min-w-0 max-w-[min(100%,22rem)] sm:max-w-lg md:max-w-xl">
+              <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.42em] text-[#181716]/90 sm:mb-6 sm:text-[11px] sm:tracking-[0.38em]">
+                {content.eyebrow}
+              </p>
+              <h1 className="max-w-[18ch] font-serif font-medium tracking-[-0.025em] text-balance text-[clamp(1.85rem,5.2vw+0.35rem,3.25rem)] leading-[1.06] text-[#181716] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:max-w-[20ch] md:leading-[1.04]">
+                {content.title}
+              </h1>
+              <p className="mt-5 max-w-[26ch] text-[13px] leading-[1.65] text-[#181716]/88 sm:mt-6 sm:text-sm md:mt-7 md:max-w-[30ch] md:text-[0.95rem]">
+                {content.subtitle}
+              </p>
+              <div className="mt-9 flex w-full min-w-0 flex-col items-start gap-6 sm:mt-11 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4">
+                <ButtonLink href={content.primaryCta.href} label={content.primaryCta.label} appearance="onDark" />
+                <Link
+                  href={content.secondaryCta.href}
+                  className="text-[11px] uppercase tracking-[0.26em] text-black underline decoration-black/35 underline-offset-[6px] transition hover:text-neutral-900 hover:decoration-neutral-900/50"
+                >
+                  {content.secondaryCta.label}
+                </Link>
+              </div>
             </div>
           </div>
         ) : (
